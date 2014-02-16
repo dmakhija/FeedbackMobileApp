@@ -1,0 +1,210 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1"> 
+    <title>DMFeedbackA1</title>
+    <link href="css/themes/default/jquery.mobile-1.1.1.css" rel="stylesheet" type="text/css" />    
+	<link href="css/custom.css" rel="stylesheet" type="text/css" />
+    
+	<style>
+     #call 
+		.ui-icon-call {
+                background: url(images/phone.png) no-repeat;
+                background-size: 18px 18px;
+                width: 18px;
+                height: 18px;
+                display: block;
+                position: absolute;
+                padding: 0px;
+                margin-top: -9px !important;
+            }
+     #email 
+		.ui-icon-email {
+                background: url(images/email.png) no-repeat;
+                background-size: 18px 18px;
+                width: 18px;
+                height: 18px;
+                display: block;
+                position: absolute;
+                padding: 0px;
+                margin-top: -9px !important;
+            }
+    #linkedin
+		.ui-icon-linkedin {
+                background: url(images/linkedin.png) no-repeat;
+                background-size: 18px 18px;
+                width: 18px;
+                height: 18px;
+                display: block;
+                position: absolute;
+                padding: 0px;
+                margin-top: -9px !important;
+            }
+	</style>  
+    <!-- JavaScript HTML requirements -->
+    <script src="js/jquery.js" type="text/javascript"></script>
+    <script src="js/jquery.mobile-1.1.1.min.js" type="text/javascript"></script>
+    <script src="js/geo.js" type="text/javascript"></script>
+</head>
+
+<body>
+<div data-role="page" id="dmHome">
+    <header data-role="header" data-position="fixed">
+        <h1>DM Feedback A1</h1>
+        <div data-role="navbar">
+		<ul>
+			<li><a href="#dmHome" data-icon="home" data-theme="b" class="ui-btn-active">Home</a></li>
+			<li><a href="#dmAddFeedback" data-icon="plus" data-theme="d">Add</a></li>
+            <li><a href="#dmViewFeedback" data-icon="grid" data-theme="d">Reviews</a></li>
+            <li><a href="#dmSettings" data-icon="star" data-theme="d">Settings</a></li>
+		</ul>
+		</div>
+    </header>    
+    <section data-role="content">
+        <h4>Durga Makhija's Feedback A1 App</h4> 
+    	<p>Welcome to the Durga Makhija's Feedback A1 app, a prototype designed for mobile programming class. This is the first iteration of the app to keep track of different places you visited along with your reviews.</p>
+        <img src="images/dm-icon-128.png" />  
+        <p>Please feel free to contact me if you have any suggestions!</p>
+           <a href="callto:+15197819440" data-role="button" id="call" data-icon="call">Call: 519.781.9440</a> 
+		  <!-- <a href="tel:5197819440" data-role="button" id="call" data-icon="call">Call: 519.781.9440</a> -->
+            <a href="mailto:dmakhija-cc@conestogac.on.ca" data-role="button" id="email" data-icon="email">dmakhija-cc@conestogac.on.ca</a> 
+            <h4>LinkedIn:</h4>
+             <a href="http://in.linkedin.com/pub/durga-makhija/61/769/880" data-role="button" id="linkedin" data-icon="linkedin" target="_blank" >Durga Makhija</a> 
+			<!-- data-transition="slideup" data-rel="dialog" -->
+	</section>       
+    <footer data-role="footer" data-position="fixed">
+        <h4>&copy; 2014</h4>
+    </footer>
+</div>
+
+<div data-role="page" id="dmAddFeedback">
+    <header data-role="header" data-position="fixed">
+        <h1>Add a Feedback</h1>
+        <div data-role="navbar">
+		<ul>
+			<li><a href="#dmHome" data-icon="home" data-theme="d" >Home</a></li>
+			<li><a href="#dmAddFeedback" data-icon="plus" data-theme="b" class="ui-btn-active">Add</a></li>
+            <li><a href="#dmViewFeedback" data-icon="grid" data-theme="d">Reviews</a></li>
+            <li><a href="#dmSettings" data-icon="star" data-theme="d">Settings</a></li>
+		</ul>
+		</div>
+    </header>    
+    <section data-role="content">
+        <form id="dmAddForm">
+      		<div data-role="fieldcontain">
+		        <label for="businessname">Business Name:</label>
+		        <input type="text" name="businessname" id="businessname">       
+		        <label for="email">Reviewer Email:</label>
+		        <input type="text" name="email" id="email">
+		        <label for="comments">Reviewer Comments:</label>
+		        <textarea name="reviewercomments" id="comments"></textarea>
+		        <label for="rating">Overall Rating(1 - 100)%:</label>
+    			<input type="number" name="rating" id="rating" type="number" min="1" max="100">
+      		</div>
+      		<input type="submit" data-inline="true" value="Save" data-theme="b">
+    	</form>        
+    </section>       
+    <footer data-role="footer" data-position="fixed">
+        <h4>&copy; 2014</h4>
+    </footer>
+</div>
+
+<div data-role="page" id="dmViewFeedback">
+    <header data-role="header" data-position="fixed">
+        <h1>List of Reviews</h1>
+        <div data-role="navbar">
+		<ul>
+			<li><a href="#dmHome" data-icon="home" data-theme="d" >Home</a></li>
+			<li><a href="#dmAddFeedback" data-icon="plus" data-theme="d">Add</a></li>
+            <li><a href="#dmViewFeedback" data-icon="grid" data-theme="b" class="ui-btn-active">Reviews</a></li>
+            <li><a href="#dmSettings" data-icon="star" data-theme="d">Settings</a></li>
+		</ul>
+		</div>
+    </header>    
+    <section data-role="content">
+        <h3>List of Reviews</h3> 
+        <ul id="dmFeedbackList" data-role="listview" data-inset="true" >
+        	<li data-icon="false">
+			<a href="#dmEditFeedback">
+        		<!-- <img src="images/icecream.jpg" style="padding: 12px">   -->
+        		<h3>Business Name: Baskin Robbins</h3>
+    			<p>Reviewer Email: b@b.com </p>
+    			<p>Comments: Best Rum flavoured ice cream with yummy raisins. </p>
+    			<p>Overall Rating: 90%</p>
+        	</a></li>
+        	<li data-icon="false">
+			<a href="#dmEditFeedback">
+        		<!-- <img src="images/coffee.jpg" style="padding: 12px"> -->
+    			<h3>Business Name: Danny's Cafe</h3>
+    			<p>Reviewer Email: a@a.com</p>
+    			<p>Comments: Love the coffee. Best espresso in KW!</p>
+    			<p>Overall Rating: 80%</p>
+        	</a></li>
+        </ul>
+    </section>       
+    <footer data-role="footer" data-position="fixed">
+        <h4>&copy; 2014</h4>
+    </footer>
+</div>
+
+<div data-role="page" id="dmEditFeedback">
+    <header data-role="header" data-position="fixed">
+        <h1>Modify Feedback</h1>
+        <div data-role="navbar">
+		<ul>
+			<li><a href="#dmHome" data-icon="home" data-theme="d" >Home</a></li>
+			<li><a href="#dmAddFeedback" data-icon="plus" data-theme="d">Add</a></li>
+            <li><a href="#dmViewFeedback" data-icon="grid" data-theme="b" class="ui-btn-active">Reviews</a></li>
+            <li><a href="#dmSettings" data-icon="star" data-theme="d">Settings</a></li>
+		</ul>
+		</div>
+    </header>    
+    <section data-role="content">
+        <form id="dmAddForm">
+      		<div data-role="fieldcontain">
+		        <label for="businessname">Business Name:</label>
+		        <input type="text" name="businessname" id="businessname" value="Baskin Robbins">       
+		        <label for="email">Reviewer Email:</label>
+		        <input type="text" name="email" id="email" value="b@b.com">
+		        <label for="comments">Reviewer Comments:</label>
+		        <textarea name="reviewercomments" id="comments">Best Rum flavoured ice cream with yummy raisins.  </textarea>
+		        <label for="rating">Overall Rating(1 - 100)%:</label>
+    			<input type="number" name="rating" id="rating" type="number" min="1" max="100" value="80">
+      		</div>
+      		<div data-role="controlgroup" data-type="horizontal">
+      			<input type="button" data-inline="true" value="Cancel" data-theme="e">
+      			<input type="button" data-inline="true" value="Delete" data-theme="a">
+      			<input type="button" data-inline="true" value="Update" data-theme="b">
+      		</div>
+    	</form>        
+    </section>       
+    <footer data-role="footer" data-position="fixed">
+        <h4>&copy; 2014</h4>
+    </footer>
+</div>
+
+<div data-role="page" id="dmSettings">
+    <header data-role="header" data-position="fixed">
+        <h1>Settings</h1>
+        <div data-role="navbar">
+		<ul>
+			<li><a href="#dmHome" data-icon="home" data-theme="d">Home</a></li>
+			<li><a href="#dmAddFeedback" data-icon="plus" data-theme="d">Add</a></li>
+            <li><a href="#dmViewFeedback" data-icon="grid" data-theme="d">Reviews</a></li>
+            <li><a href="#dmSettings" data-icon="star" data-theme="b" class="ui-btn-active">Settings</a></li>
+		</ul>
+		</div>
+    </header>    
+    <section data-role="content">
+        <label for="email"><b>Default Reviewer Email:</b></label>
+        <input type="text" id="email" name="email" />
+        <input type="button" value="Save Defaults" data-theme="b">
+        <input type="button" value="Clear Database" data-theme="a">
+    </section>       
+    <footer data-role="footer" data-position="fixed">
+        <h4>&copy; 2014</h4>
+    </footer>
+</div>
+</body>
+</html>

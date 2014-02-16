@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<widget xmlns="http://www.w3.org/ns/widgets"
+        xmlns:rim="http://www.blackberry.com/ns/widgets"
+        version="1.0.0.1" id="DMFeedbackA1App">  
+    <name>DMFeedbackA1</name>
+    <author>Durga Makhija</author>
+    <description>This sample app uses HTML5 and jQuery Mobile</description>
+    <icon src="icon.jpg"/>
+    <content src="index.html"/>
+	
+	<access subdomains="true" uri="*">
+    </access>
+  
+    <rim:permissions>  
+        <rim:permit>read_geolocation</rim:permit>
+    </rim:permissions>  
+    <feature id="blackberry.app" required="true" version="1.0.0.0"/>	
+</widget>
